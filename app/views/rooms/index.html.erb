@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+< id="notice"><%= notice %></p>
 
 <h1>Rooms</h1>
 
@@ -17,7 +17,9 @@
   <tbody>
     <% @rooms.each do |room| %>
       <tr>
-        <td><%= room.image %></td>
+        <td>
+        <%= image_tag(room.image.present? ? room.image.url : "https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png", size: "100x100") %>
+        </td>
         <td><%= room.name %></td>
         <td><%= room.address %></td>
         <td><%= room.price %></td>

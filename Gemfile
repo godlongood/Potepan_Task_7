@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 #日本語化
 gem "i18n_generators"
+#フォームに画像アップロード
+gem 'carrierwave'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
