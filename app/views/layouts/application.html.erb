@@ -10,6 +10,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header>
+    <!--ログインユーザー表示-->
+    <% if user_signed_in? %>
+      <p>ログイン中: <%= current_user.email %></p>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' } %>
+    <% else %>
+      <%= link_to 'ログイン', new_user_session_path %> |
+      <%= link_to 'サインアップ', new_user_registration_path %>
+    <% end %>
+  </header>
+
   <body>
     <% if notice %>
       <p class="notice"><%= notice %></p>

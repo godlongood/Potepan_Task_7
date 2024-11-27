@@ -1,0 +1,19 @@
+<h1>Make a Reservation</h1>
+
+<%= form_with model: [@room, @reserve], local: true do |form| %>
+  <div>
+    <%= form.label :check_in, "Check-in Date" %>
+    <%= form.date_field :check_in %>
+  </div>
+  <div>
+    <%= form.label :check_out, "Check-out Date" %>
+    <%= form.date_field :check_out %>
+  </div>
+  <div>
+    <%= form.label :people, "Number of People" %>
+    <%= form.number_field :people, min: 1 %>
+  </div>
+  <div>
+    <%= form.submit "Reserve" %>
+  </div>
+<% end %>

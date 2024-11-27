@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: %i[ show edit update destroy ]
+  before_action :set_room, only: %i[ show edit update destroy ] #各工程の前に@roomを呼び出す
+
 
   # GET /rooms or /rooms.json
   def index

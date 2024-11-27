@@ -1,29 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @room.image %>
-</p>
+<p>Image:<%= @room.image %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @room.name %>
-</p>
+<p>Name:<%= @room.name %></p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @room.address %>
-</p>
+<p>Address: <%= @room.address %></p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @room.price %>
-</p>
+<p>Price: <%= @room.price %></p>
 
-<p>
-  <strong>Intro:</strong>
-  <%= @room.intro %>
-</p>
+<p>Intro: <%= @room.intro %></p>
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
+<%= link_to "予約画面へ", new_room_reserves_path(@room), class: "btn btn-primary" %> <!-- reserves#new -->
+
