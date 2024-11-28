@@ -1,5 +1,16 @@
 <h1>Make a Reservation</h1>
 
+<% if @reserve.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@reserve.errors.count, "error") %> prohibited your reservations from being saved:</h2>
+    <ul>
+      <% @reserve.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_with model: [@room, @reserve], local: true do |form| %>
   <div>
     <%= form.label :check_in, "Check-in Date" %>

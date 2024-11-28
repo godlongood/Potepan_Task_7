@@ -13,7 +13,12 @@ class ReservesController < ApplicationController
     if @reserve.save
       redirect_to room_path(@room), notice: "予約完了"
     else
-      render :new, status: :unprocessable_entity
+      # 予約フォームでエラーが発生した場合、エラーメッセージを表示
+      if @reserve.errors.any?
+        redirect_to room_path(@room), alert:  "この部屋はすでに同じ日に予約されています。" #rooms#show
+      else
+        render :new, status: :unprocessable_entity
+      end
     end
   end
 
@@ -30,5 +35,6 @@ class ReservesController < ApplicationController
   def reserve_params
     params.require(:reserve).permit(:check_in, :check_out, :people)
   end
+
 end
 
