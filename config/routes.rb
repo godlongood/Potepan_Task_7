@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root "rooms#index"
 
+  #検索機能
+  get "search" => "searches#search"
+
+
   devise_for :users
 
   resources :users, only: [] do #crudのルートを作成せず、以下のルートのみを作成
