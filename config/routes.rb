@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root "rooms#index"
+  root "searches#search"
+
+  get "account" => "users#account"
 
   #検索機能
   get "search" => "searches#search"

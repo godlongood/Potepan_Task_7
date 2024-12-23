@@ -10,20 +10,32 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header>
-    <!--ログインユーザー-->
-    <% if user_signed_in? %>
-      <p>ログイン中: <%= current_user.email %></p>
-      <%= link_to '予約一覧',  reservations_user_path(current_user.id) %> 
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' } %>
-    <% else %>
-      <%= link_to 'ログイン', new_user_session_path %> |
-      <%= link_to 'サインアップ', new_user_registration_path %>
-    <% end %>
-  </header>
+<header>
+  <div class="login">
+    <h1><%= image_tag("https://rails-02-sample.herokuapp.com/assets/common/logo.png", alt: "Potepan_Share") %></h1>
 
-  <body>
-    <% if flash[:alert] %>
+    <!-- ログインユーザー -->
+    <% if user_signed_in? %>
+      <p>ログイン中: 
+        <!-- ユーザー名をクリックするとメニューが開く -->
+        <span class="user-name" id="user-name"><%= current_user.email %></span>
+      </p>
+      
+      <!-- ユーザーのメニュー -->
+      <div class="user-menu" id="user-menu">
+        <%= link_to '予約一覧', reservations_user_path(current_user.id) %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' } %>
+      </div>
+    <% else %>
+      <div class="header_login"><%= link_to 'ログイン', new_user_session_path %></div>
+      <div class="header_sign_up"><%= link_to '新規登録', new_user_registration_path %></div>
+    <% end %>
+  </div>
+</header>
+
+
+  <body class="body">
+      <% if flash[:alert] && !(controller_name == 'sessions' && action_name == 'new') %><!--ログインで表示されないように-->
     <div class="alert alert-danger"><%= flash[:alert] %></div>
     <% end %>
 

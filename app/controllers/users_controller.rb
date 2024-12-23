@@ -3,4 +3,8 @@ class UsersController < ApplicationController
   def reservations
     @reserves = current_user.reserves.includes(:room) # ユーザーの予約データを取得
   end
+
+  def accounts
+    
+  end
 end

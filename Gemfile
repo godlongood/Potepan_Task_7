@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 #日本語化
 gem "i18n_generators"
+gem 'devise-i18n-views'
 #フォームに画像アップロード
 gem 'carrierwave'
 

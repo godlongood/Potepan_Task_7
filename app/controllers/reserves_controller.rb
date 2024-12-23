@@ -11,11 +11,11 @@ class ReservesController < ApplicationController
     @reserve.user = current_user #ログイン中のユーザーデータの受け渡し
 
     if @reserve.save
-      redirect_to room_path(@room), notice: "予約完了"
+      redirect_to new_room_reserves_path(@room), notice: "予約完了"
     else
       # 予約フォームでエラーが発生した場合、エラーメッセージを表示
       if @reserve.errors.any?
-        redirect_to room_path(@room), alert:  "この部屋はすでに同じ日に予約されています。" #rooms#show
+        redirect_to new_room_reserves_path(@room), alert:  "この部屋はすでに同じ日に予約されています。" #reserves#new
       else
         render :new, status: :unprocessable_entity
       end
