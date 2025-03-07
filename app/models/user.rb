@@ -10,5 +10,10 @@ class User < ApplicationRecord
   #必須項目
   validates :name, :email, :password, presence: true
 
+  #管理者判定
+  def admin?
+    self.admin
+  end
+
   #パスワードと確認用パスワードの一致はdeviseの機能で実装済み
 end

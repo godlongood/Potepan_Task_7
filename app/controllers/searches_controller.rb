@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
   before_action :authenticate_user! # ログインが必要
 
-  def search
+  def search 
     if params[:word].blank?  # :word が空の場合
       @searches = Room.none   # 空の結果を設定
     else

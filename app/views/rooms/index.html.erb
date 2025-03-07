@@ -1,4 +1,14 @@
-<h1>Rooms</h1>
+<div class="room_index">
+<h1>部屋一覧</h1>
+</div>
+
+<div class="new_room_link">
+  <!-- 指定ユーザーのみ表示 -->
+  <% if current_user&.admin? %> 
+    <%= link_to '新規部屋追加', new_room_path %>
+  <% end %>
+    <%= link_to '検索', search_path %>
+</div>
 
 <div class="hotel_index">
     <% @rooms.each do |room| %>
@@ -8,12 +18,9 @@
         <li class="hotel_address"><%= room.address %></li>
         <li class="hotel_intro"><%= room.intro %></li>
         <li class="hotel_price">¥<%= room.price %>~</li>
-        <li class="hotel_show_link"><%= link_to '詳細はこちら', new_room_reserves_path(room_id: room.id) %></li> <!--予約画面へ-->
+        <li class="hotel_show_link"><%= link_to '詳細はこちら', new_room_reserf_path(room_id: room.id) %></li> <!--予約画面へ-->
       </ul>
     <% end %>
 </div>
 
-<br>
 
-<%= link_to 'New Room', new_room_path %>
-<%= link_to '検索', search_path %>

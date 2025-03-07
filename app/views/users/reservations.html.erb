@@ -1,5 +1,8 @@
-<h1>Your Reservations</h1>
+<div class="room_reservation">
+<h1>予約一覧</h1>
+</div>
 
+<div class="reservation_list">
 <table>
   <thead>
     <tr>
@@ -11,7 +14,7 @@
       <th>チェックアウト日</th>
       <th>人数</th>
       <th>予約確定日</th>
-      
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -20,12 +23,14 @@
         <td><%= image_tag(reserve.room.image.present? ? reserve.room.image.url : "https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png", size: "100x100") %></td>
         <td><%= reserve.room.name %></td>
         <td><%= reserve.room.intro %></td>
-        <td><%= number_to_currency(reserve.total_price, unit: "¥") %></td> <!--日本円表示 total_priceはreserveモデルから-->
+        <td><%= number_to_currency(reserve.total_price) %></td> <!--日本円表示 total_priceはreserveモデルから-->
         <td><%= reserve.check_in %></td>
         <td><%= reserve.check_out %></td>
         <td><%= reserve.people %></td>
         <td><%= reserve.updated_at? ? I18n.l(reserve.updated_at, format: :day) : "-" %></td> <!--day: "%Y/%m/%d"-->
+        <td><%= link_to "キャンセル",  room_reserf_path(reserve.room.id, reserve.id), method: :delete, data: { confirm: "予約をキャンセルしてもよろしいですか？" },class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<div>

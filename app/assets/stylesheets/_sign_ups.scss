@@ -1,11 +1,11 @@
+/* sessions/new */
 /* フォーム全体のスタイル */
-
 h2{
     text-align: center;
     font-size: 24px;
 }
 
-form {
+.login form {
     width: 100%; /* フォーム全体の幅を調整（100%で親要素にフィット） */
     max-width: 600px; /* 最大幅を設定 */
     margin: 0 auto; /* フォームを中央に配置 */

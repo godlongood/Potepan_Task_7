@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: %i[ show edit update destroy ] #各工程の前に@roomを呼び出す
+  before_action :authorize_admin, only: [:new, :create] # 管理者以外が直接URL (/rooms/new) にアクセスするのを防ぐ
 
 
   # GET /rooms or /rooms.json
@@ -68,4 +69,12 @@ class RoomsController < ApplicationController
     def room_params
       params.require(:room).permit(:image, :name, :address, :price, :intro)
     end
+
+    # 管理者以外が直接URL (/rooms/new) にアクセスするのを防ぐ
+    def authorize_admin
+      redirect_to root_path, alert: 'アクセス権限がありません。' unless current_user&.admin?
+    end
+
+
+
 end

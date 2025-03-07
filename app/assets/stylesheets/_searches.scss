@@ -1,3 +1,143 @@
-// Place all the styles related to the searches controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+/* 検索フォーム全体のコンテナ */
+.search_form {
+    padding: 100px;
+    position: relative;
+}
+
+/* 検索フォームの内部コンテナ */
+.search_form_container {
+    position: relative;
+    padding-top: 60px; /* セレクトボックスの高さ分余白を確保 */
+}
+
+/* セレクトボックスのコンテナ */
+.select-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px; /* セレクトボックスの幅 */
+    
+    select {
+        width: 100%;
+        height: 50px;
+        padding: 8px;
+        text-align-last: center;
+        -moz-text-align-last: center;
+        text-align: center;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        appearance: none;
+        background: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") no-repeat;
+        background-position: right 8px center;
+        background-color: white;
+        
+        /* フォーカス時のスタイル */
+        &:focus {
+            outline: none;
+            border-color: #4a90e2;
+        }
+
+        /* ホバー時のスタイル */
+        &:hover {
+            background-color: #f0f8ff; /* 背景色をライトブルーに */
+            border-color: #4a90e2;     /* ボーダー色を変更 */
+        }
+    }
+}
+
+
+/* 検索入力部分のコンテナ */
+.search_input_container {
+    display: flex;
+    flex-direction: column; /* 縦方向に並べる */
+    align-items: center;
+    gap: 20px; /* 要素間の間隔を広げる */
+    
+    input[type="text"] {
+        width: 100%;
+        height: 40px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        text-align: center;
+        
+        /* フォーカス時のスタイル */
+        &:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.6); /* フォーカス時に青い光のような影をつける */
+        }
+
+        /* ホバー時のスタイル */
+        &:hover {
+            border-color: #4a90e2; /* ボーダー色を変更 */
+            background-color: #f0f8ff; /* 背景色をライトブルーに */
+        }
+    }
+
+    .btn-primary {
+        height: 40px;
+        padding: 0 20px;
+        min-width: 120px; /* ボタンの最小幅を設定 */
+    }
+}
+
+.search_message{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.preset_links{
+    text-align: center;
+}
+
+.search_result_count{
+    width: 75%;
+    margin: 0 auto; /* width分ずらす */
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.search_result_count p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* 横並びにする親コンテナ */
+.recommend-links {
+    display: flex;
+    gap: 20px; /* 各リンクの間に余白を追加 */
+    justify-content: center; /* 中央揃え */
+    flex-wrap: wrap; /* 横幅が足りない場合に折り返し */
+    margin: 20px 0; /* 上下に余白を追加 */
+}
+
+    /* 各リンク要素 */
+    .recommend-link {
+        position: relative;
+        width: 300px; /* 各リンクの幅 */
+        height: 550px; /* 各リンクの高さ */
+        border-radius: 10px; /* 角を丸くする */
+        overflow: hidden; /* 画像がはみ出さないようにする */
+    }
+
+    /* 画像のスタイル */
+    .recommend-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 画像をボックス内に収める */
+    }
+
+    /* テキストのスタイル */
+    .recommend-text {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* 立体感を出す */
+        z-index: 2;
+    }

@@ -1,3 +1,47 @@
-// Place all the styles related to the Reserves controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.room_index_link{
+    margin-top: 100px;
+}
+
+/* テーブル全体のスタイル */
+.reservation_list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+/* ヘッダーのスタイル */
+.reservation_list thead th {
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 10px;
+    border-bottom: 2px solid #ddd;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ボディのセルスタイル */
+.reservation_list tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* 画像セルのスタイル */
+.reservation_list tbody td img {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 偶数行の背景色 */
+.reservation_list tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* ホバー時のスタイル */
+.reservation_list tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.2s ease-in-out;
+}

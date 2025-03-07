@@ -10,38 +10,44 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<header>
-  <div class="login">
-    <h1><%= image_tag("https://rails-02-sample.herokuapp.com/assets/common/logo.png", alt: "Potepan_Share") %></h1>
+  <header>
+    <div class="top">
+      <h1>
+        <%= link_to search_path do %>
+        <%= image_tag("https://rails-02-sample.herokuapp.com/assets/common/logo.png", alt: "Potepan_Share") %>
+        <% end %>
+      </h1>
 
-    <!-- ログインユーザー -->
-    <% if user_signed_in? %>
-      <p>ログイン中: 
-        <!-- ユーザー名をクリックするとメニューが開く -->
-        <span class="user-name" id="user-name"><%= current_user.email %></span>
-      </p>
-      
-      <!-- ユーザーのメニュー -->
-      <div class="user-menu" id="user-menu">
-        <%= link_to '予約一覧', reservations_user_path(current_user.id) %>
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' } %>
-      </div>
-    <% else %>
-      <div class="header_login"><%= link_to 'ログイン', new_user_session_path %></div>
-      <div class="header_sign_up"><%= link_to '新規登録', new_user_registration_path %></div>
-    <% end %>
-  </div>
-</header>
+      <!-- ログインユーザー -->
+      <% if user_signed_in? %>
+        <!-- ユーザー名をクリックするとメニューが開く  script.js-->
+      <p>ログイン中: <span class="user-name" id="user-name"><%= current_user.email %></span><span id="dropdown-toggle" class="dropdown-arrow">▼</span></p>
+      <ul id="dropdown-menu" class="dropdown-menu hidden">
+        <li><%= link_to "予約一覧", reservations_user_path(current_user, room_id: 4) %></li>
+        <li><%= link_to 'プロフィール', edit_user_registration_path %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしますか？'} %></li>
+      </ul>
+        <!-- ユーザーのメニュー -->
+        <div class="user-menu" id="user-menu">
+          <%= link_to '予約一覧', reservations_user_path(current_user.id) %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' } %>
+        </div>
+      <% else %>
+        <div class="header_login"><%= link_to 'ログイン', new_user_session_path %></div>
+        <div class="header_sign_up"><%= link_to '新規登録', new_user_registration_path %></div>
+      <% end %>
+    </div> 
+  </header>
 
+  <!--フラッシュメッセージ-->
+  <% if notice %>
+    <div class="flash notice"><%= notice %></div>
+  <% end %>
 
-  <body class="body">
-      <% if flash[:alert] && !(controller_name == 'sessions' && action_name == 'new') %><!--ログインで表示されないように-->
-    <div class="alert alert-danger"><%= flash[:alert] %></div>
-    <% end %>
+  <% if alert %>
+    <div class="flash alert"><%= alert %></div>
+  <% end %>
 
-    <% if flash[:notice] %>
-    <div class="alert alert-success"><%= flash[:notice] %></div>
-    <% end %>
 
     <%= yield %>
   </body>

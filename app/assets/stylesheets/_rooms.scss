@@ -1,3 +1,18 @@
+// room_index
+.room_index{
+    margin-top: 100px;
+    text-align: center;
+}
+.new_room_link{
+    text-align: right;
+}
+
+.new_room_link a{
+    padding-right: 20px;
+    color:  #0071c1; /* 文字色 */
+    text-decoration: none; /* リンクの下線を消す */
+}
+
 .hotel_index{
     width: 80%;
     display: flex;
@@ -63,8 +78,8 @@
 }
 
 .hotel_index li.hotel_show_link{
-    margin-left: 30px;
-    padding: 5px;
+    margin-left: 90px;
+    padding: 8px;
     background-color: #ff7757; /* ボタンの背景色 */
     border: none;
     border-radius: 5px; /* 角を丸くする */
@@ -170,3 +185,84 @@
     overflow: visible; /* ボタンが隠れないようにする */
 }
 
+/* フォーム全体 */
+.room_form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+  /* エラー表示 */
+#error_explanation {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#error_explanation h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+#error_explanation ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#error_explanation ul li {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+/* フォームフィールド */
+.room_field {
+    margin-bottom: 20px;
+}
+
+.room_field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}  
+
+// 東京都
+.room_field input[type="text"], .room_field textarea, .room_field input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.room_field input[type="file"] {
+    padding: 8px;
+}
+
+.room_field textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* 送信ボタン */
+.room_actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.room_actions input[type="submit"] {
+    background-color: #ff7757;
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
