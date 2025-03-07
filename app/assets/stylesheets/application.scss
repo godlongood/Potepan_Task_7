@@ -1,0 +1,150 @@
+/* topはヘッダー関連 */
+.top{
+    position: fixed; /*スクロールを固定*/
+    display: flex;
+    justify-content: flex-end; 
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 80px;
+    background-color: #1c1d3b;
+    display: flex; /* フレックスボックス */
+    justify-content: flex-end; /* 子要素右寄せ */
+    gap: 20px;
+    z-index: 1000; /* 前面に表示 */
+}
+
+.top img{
+    position: absolute;
+    top: 25px;
+    left: 50px;
+    width: 221px;
+}
+
+.top a{
+    color: white;
+    text-decoration: none; /* リンクの下線を消す */
+}
+
+.top p{
+    display: flex; /* 縦方向に中央揃え */
+    align-items: center; /* 縦方向に中央揃え */
+    margin-right: 30px;
+    color: white;
+}
+
+/* ユーザー名のスタイル */
+.user-name {
+    color: #007bff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* ドロップダウンメニュー */
+/* メニューは最初は非表示にする */
+.dropdown-menu {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0;
+    background: white;
+    border: 1px solid #ccc;
+    width: 150px;
+    position: absolute;
+    display: none; /* 初期状態は非表示 */
+  }
+  
+  /* メニューを表示するためにblockに変更 */
+  .dropdown-menu.show {
+    display: block;
+  }
+  
+  .dropdown-arrow {
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  
+  .dropdown-menu li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .dropdown-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  .dropdown-menu a {
+    text-decoration: none;
+    color: black;
+    display: block;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* メニューのスタイル */
+  .user-menu {
+    display: none; /* 初期状態では非表示 */
+    position: absolute;
+    top: 40px; /* ユーザー名の下に表示 */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+  }
+  
+  .user-menu a {
+    display: block;
+    padding: 8px 0;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .user-menu a:hover {
+    background-color: #f1f1f1;
+  }
+  
+
+
+
+.header_login{
+    margin-top: 33px;
+}
+.header_sign_up{
+    margin-top: 25px;
+    margin-right: 150px;
+    margin-bottom: 25px;
+    display: inline-flex; /* Flexboxを有効に */
+    align-items: center;  /* 縦方向の中央揃え */
+    justify-content: center; /* 横方向の中央揃え */
+    padding: 8px;
+    background-color: #ff7757; /* ボタンの背景色 */
+    border-radius: 5px; /* 角を丸くする */
+    font-size: 12px;
+}
+
+.header_sign_up:hover {
+    cursor: pointer; /* ホバー時にマウスポインタを変更 */
+}
+
+.body{
+    margin-top: 80px;
+}
+
+.search_message{
+    text-align: center;
+}
+
+@import "reservations";
+@import "reserves";
+@import "rooms";
+/* @import "scaffolds"; */
+@import "searches";
+@import "users";
+@import "sign_ups";
+
+/*
+ *= require_tree .
+ *= require_self
+ */

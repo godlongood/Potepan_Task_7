@@ -1,0 +1,51 @@
+<div class="room_index_link"><%= link_to '←戻る', rooms_path %></div> <!--部屋一覧へ-->
+
+<!--エラーメッセージ表示-->
+<% if @reserve.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@reserve.errors.count, "error") %> prohibited your reservations from being saved:</h2>
+    <ul>
+      <% @reserve.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="hotel_show">
+  <!-- 画像エリア -->
+  <div class="hotel_show_image">
+    <%= image_tag(@room.image.present? ? @room.image.url : "https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png") %>
+  </div>
+
+  <!-- 情報とフォームエリア -->
+  <div class="hotel_show_content">
+    <div class="hotel_reservation_form">
+    <!-- 予約フォーム -->
+      <%= form_with model: [@room, @reserve], local: true do |form| %>
+      <!-- 部屋情報 -->
+      <p class="hotel_show_name"><%= @room.name %></p>
+      <p class="hotel_show_price">¥<%= @room.price %>~</p>
+      <p class="hotel_show_address"><%= @room.address %></p>
+      <p class="hotel_show_intro"><%= @room.intro %></p>
+        <div class="form-row">
+          <div class="form-group">
+            <%= form.label :check_in, "チェックイン" %>
+            <%= form.date_field :check_in %>
+          </div>
+          <div class="form-group">
+            <%= form.label :check_out, "チェックアウト" %>
+            <%= form.date_field :check_out %>
+          </div>
+          <div class="form-group">
+            <%= form.label :people, "人数" %>
+            <%= form.number_field :people, min: 1 %>
+          </div>
+        </div>
+        <div class="submit-row">
+          <%= form.submit "予約する", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

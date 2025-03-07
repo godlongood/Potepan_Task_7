@@ -1,0 +1,22 @@
+<table class="form_table">
+    <tr>
+        <th><%= f.label :image ,"画像" %></th>
+        <td><%= f.file_field :image %></td> <!-- 画像挿入 -->
+    </tr>
+    <tr>
+        <th><%= f.label :name ,"名前" %></th>
+        <td><%= f.text_field :name, placeholder: "名前" %></td> <!-- 一行入力 -->
+    </tr>
+    <tr>
+        <th><%= f.label :address ,"住所" %></th>
+        <td><%= f.text_area :address, placeholder: "住所" %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :price ,"料金" %></th>
+        <td><%= f.number_field :price %></td> <!-- 数字のみ -->
+    </tr>
+    <tr>
+        <th><%= f.label :intro ,"紹介" %></th>
+        <td><%= f.text_area :intro, placeholder: "紹介" %></td>
+    </tr>
+</table>

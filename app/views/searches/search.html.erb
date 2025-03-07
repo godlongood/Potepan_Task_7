@@ -1,0 +1,75 @@
+<!--検索フォーム-->
+<% if user_signed_in? %>
+  <div class="search_form">
+    <%= form_with url: search_path, local: true, method: :get do |f| %> <!--検索の場合フォーム送信時にはgetリクエスト-->
+      <div class="search_form_container">
+      <div class="select-container">
+        <%= f.select :search, options_for_select([["検索方法：エリア検索", "forward_match"],["検索方法：あいまい検索（フリーワード検索）", "partial_match"]], params[:search]), { class: "custom-select" } %>
+      </div>
+        <div class="search_input_container">
+          <%= f.text_field :word, placeholder: "キーワードを入力" %>
+          <%= f.submit "検索", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<!--検索結果 表示-->
+<% if params[:word].present? %> <!-- 検索ワードが入力されている場合 -->
+  <% if @searches.present? %> <!-- 検索結果がある場合 -->
+    <div class="search_result_count">
+      <p><%= @searches.size %> 件見つかりました</p> <!-- 合計数を表示 -->
+      <p>（キーワード: 「<%= params[:word] %>」, 検索タイプ: <%= params[:search] == "forward_match" ? "エリア検索" : "あいまい検索" %>）</p>
+    </div>
+    <div class="hotel_index">
+      <% @searches.each do |room| %>
+        <ul>
+          <li><%= image_tag(room.image.present? ? room.image.url : "https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png") %></li>
+          <li class="hotel_name"><%= room.name %></li>
+          <li class="hotel_address"><%= room.address %></li>
+          <li class="hotel_intro"><%= room.intro %></li>
+          <li class="hotel_price">¥<%= room.price %>~</li>
+          <li class="hotel_show_link"><%= link_to '詳細はこちら', new_room_reserf_path(room_id: room.id) %></li> <!--予約画面へ-->
+        </ul>
+      <% end %>
+    </div>
+  <% else %> <!-- 検索結果が0件の場合 -->
+    <p class="search_message">検索結果は0件でした。</p>
+  <% end %>
+<% end %>
+
+
+<!-- キーワード入力済みリンク -->
+<% unless @searches.present? %><!-- 検索結果が表示されている場合に非表示に -->
+  <div class="recommend-links">
+    <div class="recommend-link">
+      <%= link_to search_path(search: "forward_match", word: "東京"), class: "recommend-area-link" do %>
+        <%= image_tag "https://rails-02-sample.herokuapp.com/assets/home/recommend-area/tokyo.jpg", alt: "東京", class: "recommend-image" %>
+        <span class="recommend-text">東京</span>
+      <% end %>
+    </div>
+    <div class="recommend-link">
+      <%= link_to search_path(search: "forward_match", word: "大阪"), class: "recommend-area-link" do %>
+        <%= image_tag "https://rails-02-sample.herokuapp.com/assets/home/recommend-area/osaka.jpg", alt: "大阪", class: "recommend-image" %>
+        <span class="recommend-text">大阪</span>
+      <% end %>
+    </div>
+    <div class="recommend-link">
+      <%= link_to search_path(search: "forward_match", word: "京都"), class: "recommend-area-link" do %>
+        <%= image_tag "https://rails-02-sample.herokuapp.com/assets/home/recommend-area/kyoto.jpg", alt: "京都", class: "recommend-image" %>
+        <span class="recommend-text">京都</span>
+      <% end %>
+    </div>
+    <div class="recommend-link">
+      <%= link_to search_path(search: "forward_match", word: "札幌"), class: "recommend-area-link" do %>
+        <%= image_tag "https://rails-02-sample.herokuapp.com/assets/home/recommend-area/sapporo.jpg", alt: "札幌", class: "recommend-image" %>
+        <span class="recommend-text">札幌</span>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+
+
+<%= link_to '部屋一覧', rooms_path %>

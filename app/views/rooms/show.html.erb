@@ -1,0 +1,19 @@
+<div class="room_index_link"><%= link_to '戻る', rooms_path %></div> <!--部屋一覧へ-->
+
+<div class="hotel_show">
+    <div class="hotel_show_image">
+    <%= image_tag(@room.image.present? ? @room.image.url : "https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png") %>
+    </div>
+
+    <div class="hotel_show_index">
+    <p class="hotel_show_name"><%= @room.name %></p>
+    <p class="hotel_show_address"><%= @room.address %></p>
+    <p class="hotel_show_price"><%= @room.price %></p>
+    <p class="hotel_show_intro"><%= @room.intro %></p>
+    </div>
+
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to "予約画面へ", new_room_reserf_path(@room), class: "btn btn-primary" %> <!-- reserves#new -->
+</div>
+
+

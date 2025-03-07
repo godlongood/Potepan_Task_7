@@ -21,6 +21,13 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+#ログイン機能
+gem 'devise'
+#日本語化
+gem "i18n_generators"
+gem 'devise-i18n-views'
+#フォームに画像アップロード
+gem 'carrierwave'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

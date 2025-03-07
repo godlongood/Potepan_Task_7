@@ -1,0 +1,268 @@
+// room_index
+.room_index{
+    margin-top: 100px;
+    text-align: center;
+}
+.new_room_link{
+    text-align: right;
+}
+
+.new_room_link a{
+    padding-right: 20px;
+    color:  #0071c1; /* 文字色 */
+    text-decoration: none; /* リンクの下線を消す */
+}
+
+.hotel_index{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap; /* 折り返し */
+    justify-content: flex-start; /* 左合わせ */
+    margin:0 auto; /* ブロック要素の中央寄せ */
+}
+
+.hotel_index ul {
+    width: 30%;
+    height: 300px;
+    background: white;
+    margin: 10px;
+    padding: 0;
+    overflow: hidden; /* 内容がはみ出さないようにする */
+    border-radius: 8px; /* 角を丸く */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 影 */
+}
+
+.hotel_index li{
+    list-style: none;
+}
+
+.hotel_index a{
+    color: #fff; /* 文字色 */
+    text-decoration: none; /* リンクの下線を消す */
+}
+
+.hotel_index img{
+    width: 100%;
+    height: 150px;
+    display: block;
+}
+
+.hotel_index li.hotel_name{
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis; /* ・・・表示 */
+}
+.hotel_index li.hotel_address{
+    color: rgba(128, 128, 128, 0.8);
+    font-size: 8px;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis; /* ・・・表示 */
+}
+.hotel_index li.hotel_intro{
+    font-size: 15px;
+    padding: 5px;
+    overflow: hidden; /* 超過分を隠す */
+    white-space: nowrap; /* テキストを1行に収める */
+    text-overflow: ellipsis; /* ・・・表示 */
+}
+.hotel_index li.hotel_price{
+    font-size: 20px;
+    padding: 5px;
+    color: red;
+    float: left; /* 詳細を右横に配置 */
+}
+
+.hotel_index li.hotel_show_link{
+    margin-left: 90px;
+    padding: 8px;
+    background-color: #ff7757; /* ボタンの背景色 */
+    border: none;
+    border-radius: 5px; /* 角を丸くする */
+    font-size: 14px;
+    display: inline-flex; /* Flexboxを有効にする */
+    align-items: center;  /* 縦方向の中央揃え */
+    justify-content: center; /* 横方向の中央揃え */
+}
+
+/*---------------------------------------------------------*/
+
+.room_index_link{
+    font-size: 18px;
+    margin-left: 50px;
+    line-height: 100px;
+}
+
+.room_index_link a{
+    color: #0071c1;
+    text-decoration: none; /* リンクの下線を消す */
+}
+
+.hotel_show {
+    display: flex; /* 子要素を横並びに配置 */
+    align-items: flex-start; /* 上揃え */
+    gap: 20px; /* 要素間のスペース */
+    margin: 20px auto; /* 上下の余白と中央寄せ */
+    width: 80%; /* ページ幅に合わせて調整 */
+}
+
+.hotel_show_image {
+    flex: 1; /* 画像のエリアサイズ */
+    max-width: 50%; /* 最大幅を設定 */
+}
+
+.hotel_show_image img {
+    width: 100%; /* 親要素に合わせてリサイズ */
+    height: auto;
+}
+
+.hotel_show_content {
+    margin: 0;
+    flex: 1; /* 情報とフォームのエリア */
+    display: flex;
+    flex-direction: column; /* 縦並び */
+    justify-content: space-between; /* 均等に配置 */
+    gap: 20px; /* 情報とフォームの間隔 */
+}
+
+.hotel_show_name{
+    font-size: 24px;
+    color: #767e86;
+    float: left; /* 値段を横に */
+}
+.hotel_show_price{
+    font-size: 28px;
+    color: #ff7757;
+    font-family: Lato, sans-serif;
+    text-align: right;
+}
+.hotel_show_address{
+    font-size: 14px;
+    color: #767e86;
+}
+.hotel_show_intro{
+    font-size: 16px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.hotel_reservation_form form{
+    width: 100%; /* フォーム全体の幅を調整（100%で親要素にフィット） */
+    height: auto;
+    max-width: 600px; /* 最大幅を設定 */
+    margin: 0 auto; /* フォームを中央に配置 */
+    padding: 20px; /* 内側の余白 */
+    background-color: white; 
+    border-radius: 8px; /* 角を丸く */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 影 */
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between; /* フォームグループを均等に配置 */
+    margin-bottom: 20px; /* 行の間にスペース */
+}
+
+.form-row input{
+    width: 80%; /* フォームフィールドを横幅いっぱいに */
+    height: 20px;
+    padding: 8px; /* 内側に余白 */
+    border: 1px solid #ccc; /* 枠線を追加 */
+    border-radius: 4px; /* 角を丸く */
+}
+
+.form-row label {
+    flex: 0 0 150px; /* ラベルの幅を固定 */
+    margin-right: 10px; /* ラベルとフォームフィールドの間にスペース */
+    text-align: right; /* ラベルを右寄せにする */
+}
+
+.submit-row{
+    overflow: visible; /* ボタンが隠れないようにする */
+}
+
+/* フォーム全体 */
+.room_form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+  /* エラー表示 */
+#error_explanation {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#error_explanation h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+#error_explanation ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#error_explanation ul li {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+/* フォームフィールド */
+.room_field {
+    margin-bottom: 20px;
+}
+
+.room_field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}  
+
+// 東京都
+.room_field input[type="text"], .room_field textarea, .room_field input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.room_field input[type="file"] {
+    padding: 8px;
+}
+
+.room_field textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* 送信ボタン */
+.room_actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.room_actions input[type="submit"] {
+    background-color: #ff7757;
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
